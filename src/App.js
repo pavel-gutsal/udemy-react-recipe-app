@@ -12,7 +12,7 @@ import './App.css';
 
 function App() {
   return (
-    //!!!!!!!!!!!   might be non operational !!!!!!!
+
       <Routes>
         <Route path='/' element={<Navigation/>}>
           <Route index element={<Home/>}/>
