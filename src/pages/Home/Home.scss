@@ -1,0 +1,17 @@
+:root{
+    --violet:rgb(108, 45, 203);
+    --whiteDefault:rgb(222, 222, 222);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.home{
+   
+    height:100vh;
+    background-color:var(--whiteDefault);
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+}

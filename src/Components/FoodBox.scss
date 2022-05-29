@@ -1,0 +1,97 @@
+:root{
+    --width:400px;
+    --height:250px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.wrapper{   
+    margin:0 auto;
+    display: grid;
+    grid-template-columns: repeat(3 , var(--width));
+    gap:40px;
+}
+.foodBox{
+    width:var(--width);
+    height:var(--height);
+    background: white;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.266);
+    padding: 20px;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+.foodBox:hover ,.foodBox:focus{
+    transform:rotate(5deg) ;
+}
+.foodbox__title{
+    font-family: 'Roboto' , sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color:rgb(46, 46, 46);
+    
+}
+.foodbox__cookingTime{
+    font-family: 'Roboto' , sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color:rgb(150, 150, 150);
+    margin-bottom: 10px;
+}
+.foodbox__description{
+    font-family: 'Roboto' , sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color:rgb(48, 48, 48);
+}
+.foodbox__btn{
+    position: absolute;
+    bottom: 20px;
+    left:50%;
+    transform: translateX(-50%);
+    color:rgb(56, 56, 56);
+    font-size: 16px;
+    font-weight: 400;
+    background: rgb(234, 234, 234);
+    outline: none;
+    border: 1px solid rgb(234, 234, 234);
+    padding: 8px 25px;
+    border-radius: 4px;
+    transition: all 0.5s ease-in-out;
+}
+.foodbox__btn:hover , .foodbox__btn:focus{
+    transform: translateY(-4px) translateX(-50%);
+    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.253);
+    background:rgb(255, 255, 255) ;
+    cursor: pointer;
+    border: 1px solid rgb(84, 84, 84);
+}
+.error{
+    font-family: 'Roboto' , sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color:rgb(46, 46, 46);
+}
+
+@media screen and (max-width:1350px){
+    .wrapper{   
+        grid-template-columns: repeat(2 , var(--width));
+        grid-template-rows: repeat(2 , var(--height));
+        gap:30px;
+    }
+}
+@media screen and (max-width:1350px){
+    .wrapper{   
+        grid-template-columns: repeat(2 , var(--width));
+        grid-template-rows: repeat(2 , var(--height));
+        gap:30px;
+    }
+}
+@media screen and (max-width:900px){
+    .wrapper{   
+        grid-template-columns: repeat(1 , var(--width));
+        grid-template-rows: repeat(3 , var(--height));
+        gap:20px;
+    }
+}
