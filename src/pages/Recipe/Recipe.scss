@@ -5,5 +5,51 @@
     box-sizing: border-box;
 }
 .recipe{
+    background: rgb(235, 235, 235);
+    width:100%;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+.recipe__wrapper{
     background: white;
+    border: 1px solid white;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.271);
+    width:60%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Roboto' , sans-serif;
+    padding: 60px 30px 30px 30px;
+}
+.recipe__name{
+    font-weight: 600;
+    font-size:32px;
+    margin-bottom: 40px;
+}
+.recipe__time{
+    font-weight: 400;
+    font-size:24px;
+    color: rgb(49, 49, 49);
+    margin-bottom: 10px;
+}
+.recipe__ingr__list{
+    display: flex;
+    justify-content: row;
+    gap:15px;
+    margin-bottom:10px;
+}
+.recipe__ingr{
+    font-weight: 400;
+    font-size:24px;
+    color: rgb(106, 106, 106);
+}
+.recipe__descr{
+    font-weight: 300;
+    font-size:22px;
+    color: rgb(41, 41, 41);
+    line-height: 40px;
 }

@@ -4,7 +4,7 @@ import useFetch from './useFetch-Hook/useFetch';
 import './FoodBox.scss'
 
 const FoodBox = ()=>{
-    const url = 'https://raw.githubusercontent.com/iamshaunjp/React-Firebase/lesson-79/cooking-ninja/data/db.json'
+    const url = 'http://localhost:3000/recipes'
     const {data ,error} = useFetch(url);
    
     return (

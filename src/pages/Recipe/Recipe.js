@@ -20,10 +20,12 @@ const Recipe = ()=>{
                 <div className="recipe__wrapper">
                     <h1 className="recipe__name">{data.title}</h1>
                     <h1 className="recipe__time">Takes {data.cookingTime} to cook</h1>
-                    {   data.ingredients.map(el=>{
-                            return(<h1 className='recipe__ingr'>{el}.</h1>)
-                        })
-                    }
+                    <div className="recipe__ingr__list">
+                        {   data.ingredients.map(el=>{
+                                return(<h1 className='recipe__ingr' key={el.id}>{el}.</h1>)
+                            })
+                        }
+                    </div>
                     <p className="recipe__descr">{data.method}</p>
 
                 </div>
