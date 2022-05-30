@@ -8,9 +8,11 @@
     box-sizing: border-box;
 }
 .wrapper{   
+    
     margin:0 auto;
     display: grid;
     grid-template-columns: repeat(3 , var(--width));
+    grid-template-rows:  var(--height) auto;
     gap:40px;
 }
 .foodBox{

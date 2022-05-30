@@ -10,13 +10,13 @@ const useFetch = (url , id)=>{
             
             try{
                 const data = await fetch(url);
-                
+               
                 if(!data.ok) throw new Error(data.status)
                 
                 const res = await data.json();
                 
                 if(id){
-                    setDate(res.recipes.find(el=>el.id===id))
+                    setDate(res.find(el=>el.id===id))
                 }else{
                     setDate(res);
                 }

@@ -7,7 +7,7 @@ const Recipe = ()=>{
     
 
     const {id} = useParams();
-    const url = `https://raw.githubusercontent.com/iamshaunjp/React-Firebase/lesson-79/cooking-ninja/data/db.json`;
+    const url = `http://localhost:3000/recipes`;
 
     const {data ,error} = useFetch(url,id);
    
@@ -22,7 +22,11 @@ const Recipe = ()=>{
                     <h1 className="recipe__time">Takes {data.cookingTime} to cook</h1>
                     <div className="recipe__ingr__list">
                         {   data.ingredients.map(el=>{
-                                return(<h1 className='recipe__ingr' key={el.id}>{el}.</h1>)
+                                return(
+                                    <div key={el.id}>
+                                         <h1 className='recipe__ingr' >{el}.</h1>
+                                    </div>
+                                )
                             })
                         }
                     </div>

@@ -1,4 +1,5 @@
 import  {useState ,useRef} from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Create.scss'
 
 
@@ -8,7 +9,10 @@ const Create = ()=>{
     const [method , setMethod] = useState('');
     const [time , setTime] = useState('');
     const [newIngredient , setNewIngredient] = useState('');
-    const [ingridients , setIngridients] = useState([]);
+    const [ingredients , setIngredients] = useState([]);
+
+    //Navigate Hook;
+    const navigate = useNavigate();
 
     // resizable text area
     const inputRef = useRef();
@@ -22,18 +26,30 @@ const Create = ()=>{
 
     const submitHandler = (e)=>{
         e.preventDefault();
-        console.log(title);
-        console.log(method);
-        console.log(time);
-        console.log(ingridients)
+        const send = {title , method ,cookingTime:time+' minutes', ingredients}
+        const url = 'http://localhost:3000/recipes'
+
+        //fetch post
+        fetch(url , {
+            method:'POST',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(send)
+        })
+        .then(
+            setTitle('') , setMethod(''),setTime(''),setIngredients([])
+        ).then(navigate('/'));
+        
+        
 
     }
 
     const ingridientHandler =(e)=>{
         e.preventDefault();
         const ingr = newIngredient.trim();
-        if(ingr && !ingridients.includes(ingr)){
-            setIngridients(prev=>[...prev , ingr])
+        if(ingr && !ingredients.includes(ingr)){
+            setIngredients(prev=>[...prev , ingr])
         }
 
         setNewIngredient('')
@@ -58,12 +74,12 @@ const Create = ()=>{
                      />
             </label>
             <label >
-                <span>Recipe ingridients :</span>
+                <span>Recipe ingredients :</span>
                 <div className="recipe__input__ingr">
                     <input 
                         className='recipe_input'
                         type="text"
-                        placeholder='Ingridients'
+                        placeholder='ingredients'
                         onChange = {(e)=>{setNewIngredient(e.target.value)}}
                         value = {newIngredient}
                         />
@@ -73,8 +89,8 @@ const Create = ()=>{
                         >add</button>
                 </div>
                 
-                <p className="recipe__inp__text"><span>Current ingridients :</span>
-                {ingridients.map(el=>{return el + ' , '})}
+                <p className="recipe__inp__text"><span>Current ingredients :</span>
+                {ingredients.map(el=>{return el + ' , '})}
                 </p>
                 
             </label>
